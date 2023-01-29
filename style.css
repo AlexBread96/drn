@@ -83,7 +83,7 @@ footer {
 
 
 .card {
-    transform-origin: top;
+    /* transform-origin: top; */
     transition-timing-function: linear;
     backface-visibility: hidden;
     position: absolute;

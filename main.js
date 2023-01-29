@@ -15,7 +15,7 @@ drag.addEventListener("touchmove", dragMove);
 drag.addEventListener("touchend", dragDrop);
 drag.addEventListener("touchstart", function (e) {
   //   console.log(e);
-    console.log(e.targetTouches[0]);
+  console.log(e.targetTouches[0]);
   //   console.log(drag.getBoundingClientRect());
   //   console.log(
   //     e.targetTouches[0].pageX -
@@ -37,8 +37,10 @@ drag.addEventListener("touchstart", function (e) {
   y =
     e.targetTouches[0].pageY -
     e.target.offsetTop -
-    (drag.getBoundingClientRect().top - e.targetTouches[0].target.offsetTop + 50);
-    console.log(x, y);
+    (drag.getBoundingClientRect().top -
+      e.targetTouches[0].target.offsetTop +
+      50);
+  console.log(x, y);
 });
 [...card].forEach((el) => {});
 drag.addEventListener("click", function (e) {
@@ -50,15 +52,18 @@ drag.addEventListener("click", function (e) {
 });
 
 function dragMove(e) {
+  drag.style.transition = "";
   e.preventDefault();
   let touch = e.targetTouches[0] || e.targetTouches[1] || e.targetTouches[2];
   drag.style.top = `${touch.pageY - wrapper.offsetTop - y}px`;
   drag.style.left = `${touch.pageX - wrapper.offsetLeft - x}px`;
   let rotate = touch.target.offsetLeft - touch.target.parentElement.offsetLeft;
   if (drag.getBoundingClientRect().height / 2 < y) {
-    drag.style.transform = `rotate(${-rotate / 16}deg)`;
+    drag.style.transformOrigin = "bottom";
+    drag.style.transform = `rotate(${-rotate / 64}deg)`;
   } else {
-    drag.style.transform = `rotate(${rotate / 16}deg)`;
+    drag.style.transformOrigin = "top";
+    drag.style.transform = `rotate(${rotate / 64}deg)`;
   }
   // тиндер эмитация
   [...empty].forEach((el) => {
@@ -108,11 +113,14 @@ function dragDrop(e) {
       y =
         e.targetTouches[0].pageY -
         e.target.offsetTop -
-        (drag.getBoundingClientRect().top - e.targetTouches[0].target.offsetTop + 50);
-        console.log(x, y); 
-        console.log(drag.getBoundingClientRect());
+        (drag.getBoundingClientRect().top -
+          e.targetTouches[0].target.offsetTop +
+          50);
+      console.log(x, y);
+      console.log(drag.getBoundingClientRect());
     });
   } else {
+    this.style.transition = "all .2s ease";
     this.style.top = `${lastItem.offsetTop}px`;
     this.style.left = `${lastItem.offsetLeft}px`;
     drag.style.transform = `rotate(0deg)`;
