@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
           el.getBoundingClientRect().right
       ) {
         //   el.classList.add("active");
-        console.log(el);
+       
         lastItem = el;
       } else {
         //   el.classList.remove("active");
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : null;
       this.style.left = `${lastItem.offsetLeft}px`;
       drag.style.transform = `rotate(0deg)`;
-      setTimeout(() => {
+  
         lastItem.append(this);
         this.remove();
         zone.firstElementChild.setAttribute("id", "drag");
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
           //   console.log(x, y);
           //   console.log(drag.getBoundingClientRect());
         });
-      }, 220);
+    
     } else {
       this.style.transitionProperty = "all";
       this.style.top = `${zone.offsetTop}px`;
