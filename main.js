@@ -90,10 +90,10 @@ function dragMove(e) {
 function dragDrop(e) {
   if (
     lastItem.classList.contains("like") ||
-    lastItem.classList.contains("none")
+    lastItem.classList.contains("none") || lastItem.classList.contains("gold")
   ) {
-    this.style.transition = "all .2s ease";
-    // this.style.top = `${lastItem.offsetTop}px`;
+    this.style.transition = "all .2s linear";
+    lastItem.classList.contains("gold") ? this.style.top = `${lastItem.offsetTop}px` : null;
     this.style.left = `${lastItem.offsetLeft}px`;
     drag.style.transform = `rotate(0deg)`;
     setTimeout(() => {
@@ -118,7 +118,7 @@ function dragDrop(e) {
         //   console.log(x, y);
         //   console.log(drag.getBoundingClientRect());
       });
-    }, 300);
+    }, 220);
   } else {
     this.style.transition = "all .2s ease";
     this.style.top = `${lastItem.offsetTop}px`;
