@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //   el.classList.add("active");
 
         lastItem = el;
-      } else {
+      } else { 
         //   el.classList.remove("active");
       }
     });
