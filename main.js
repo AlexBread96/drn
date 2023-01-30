@@ -38,8 +38,7 @@ drag.addEventListener("touchstart", function (e) {
     e.targetTouches[0].pageY -
     e.target.offsetTop -
     (drag.getBoundingClientRect().top -
-      e.targetTouches[0].target.offsetTop +
-      50);
+      e.targetTouches[0].target.offsetTop);
   console.log(x, y);
 });
 [...card].forEach((el) => {});
@@ -114,8 +113,7 @@ function dragDrop(e) {
         e.targetTouches[0].pageY -
         e.target.offsetTop -
         (drag.getBoundingClientRect().top -
-          e.targetTouches[0].target.offsetTop +
-          50);
+          e.targetTouches[0].target.offsetTop );
       console.log(x, y);
       console.log(drag.getBoundingClientRect());
     });
