@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   up.addEventListener("click", (e) => {
     console.log(e);
-    drag.style.transition = "all .2s";
+    drag.style.transitionProperty = "all";
     drag.style.top = `${gold.offsetTop}px`;
     drag.style.left = `${gold.offsetLeft}px`;
     setTimeout(() => {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   left.addEventListener("click", (e) => {
     console.log(e);
-    drag.style.transition = "all .2s";
+    drag.style.transitionProperty = "all";
     drag.style.top = `${none.offsetTop}px`;
     drag.style.left = `${none.offsetLeft}px`;
     drag.style.transform = `rotate(${10}deg)`;
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   right.addEventListener("click", (e) => {
     console.log(e);
-    drag.style.transition = "all .2s";
+    drag.style.transitionProperty = "all";
     drag.style.top = `${like.offsetTop}px`;
     drag.style.left = `${like.offsetLeft}px`;
     drag.style.transform = `rotate(${-10}deg)`;
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
 
   function dragMove(e) {
-    drag.style.transition = "";
+    drag.style.transitionProperty = "none";
     e.preventDefault();
     let touch = e.targetTouches[0];
     drag.style.top = `${touch.pageY - wrapper.offsetTop - y}px`;
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lastItem.classList.contains("none") ||
       lastItem.classList.contains("gold")
     ) {
-      this.style.transition = "all .2s linear";
+      this.style.transitionProperty = "all";
       lastItem.classList.contains("gold")
         ? (this.style.top = `${lastItem.offsetTop}px`)
         : null;
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }, 220);
     } else {
-      this.style.transition = "all .2s ease";
+      this.style.transitionProperty = "all";
       this.style.top = `${zone.offsetTop}px`;
       this.style.left = `${zone.offsetLeft}px`;
       drag.style.transform = `rotate(0deg)`;
