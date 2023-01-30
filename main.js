@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const right = document.querySelector(".right");
   let x;
   let y;
-  let lastItem;
+  let lastItem = zone;
   [...card].forEach((el) => {
     el.style.backgroundColor = `${
       "#" +
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }`;
   });
   up.addEventListener("click", (e) => {
-    console.log(e);
+    // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${gold.offsetTop}px`;
     drag.style.left = `${gold.offsetLeft}px`;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   });
   left.addEventListener("click", (e) => {
-    console.log(e);
+    // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${none.offsetTop}px`;
     drag.style.left = `${none.offsetLeft}px`;
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   });
   right.addEventListener("click", (e) => {
-    console.log(e);
+    // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${like.offsetTop}px`;
     drag.style.left = `${like.offsetLeft}px`;
@@ -141,14 +141,14 @@ document.addEventListener("DOMContentLoaded", function () {
       (drag.getBoundingClientRect().top - e.targetTouches[0].target.offsetTop);
     //   console.log(x, y);
   });
-  // [...card].forEach((el) => {});
-  // drag.addEventListener("click", function (e) {
-  //   console.log(e);
-  //   console.log(e.offsetX);
-  //   console.log(e.offsetY);
-  //   //   x = e.offsetX;
-  //   //   y = e.offsetY;
-  // });
+  [...card].forEach((el) => {});
+  drag.addEventListener("click", function (e) {
+    console.log(e);
+    console.log(e.offsetX);
+    console.log(e.offsetY);
+    //   x = e.offsetX;
+    //   y = e.offsetY;
+  });
 
   function dragMove(e) {
     drag.style.transitionProperty = "none";
@@ -160,14 +160,16 @@ document.addEventListener("DOMContentLoaded", function () {
       touch.target.offsetLeft - touch.target.parentElement.offsetLeft;
     if (drag.getBoundingClientRect().height / 2 < y) {
       drag.style.transformOrigin = "top";
-      drag.style.transform = `rotate(${-rotate / 80}deg)`;
+      drag.style.transform = `rotate(${-rotate / 16}deg)`;
     } else {
       drag.style.transformOrigin = "bottom";
-      drag.style.transform = `rotate(${rotate / 80}deg)`;
+      drag.style.transform = `rotate(${rotate / 16}deg)`;
     }
     // тиндер эмитация
     [...empty].forEach((el) => {
       // el.addEventListener('')
+    // console.log(none.getBoundingClientRect());
+    // console.log(drag.getBoundingClientRect());
       if (
         drag.getBoundingClientRect().top + drag.offsetHeight / 2 <
           el.getBoundingClientRect().bottom &&
