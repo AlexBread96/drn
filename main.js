@@ -89,7 +89,7 @@ right.addEventListener("click", (e) => {
   drag.style.left = `${like.offsetLeft}px`;
   drag.style.transform = `rotate(${-10}deg)`;
   setTimeout(() => {
-    none.append(like);
+    like.append(drag);
     drag.remove();
     zone.firstElementChild.setAttribute("id", "drag");
     drag = document.getElementById("drag");
@@ -140,16 +140,16 @@ drag.addEventListener("touchstart", function (e) {
     e.targetTouches[0].pageY -
     e.target.offsetTop -
     (drag.getBoundingClientRect().top - e.targetTouches[0].target.offsetTop);
-    console.log(x, y);
+  //   console.log(x, y);
 });
-[...card].forEach((el) => {});
-drag.addEventListener("click", function (e) {
-  console.log(e);
-  console.log(e.offsetX);
-  console.log(e.offsetY);
-  //   x = e.offsetX;
-  //   y = e.offsetY;
-});
+// [...card].forEach((el) => {});
+// drag.addEventListener("click", function (e) {
+//   console.log(e);
+//   console.log(e.offsetX);
+//   console.log(e.offsetY);
+//   //   x = e.offsetX;
+//   //   y = e.offsetY;
+// });
 
 function dragMove(e) {
   drag.style.transition = "";
@@ -220,14 +220,14 @@ function dragDrop(e) {
           e.target.offsetTop -
           (drag.getBoundingClientRect().top -
             e.targetTouches[0].target.offsetTop);
-          console.log(x, y);
+        //   console.log(x, y);
         //   console.log(drag.getBoundingClientRect());
       });
     }, 220);
   } else {
     this.style.transition = "all .2s ease";
-    this.style.top = `${lastItem.offsetTop}px`;
-    this.style.left = `${lastItem.offsetLeft}px`;
+    this.style.top = `${zone.offsetTop}px`;
+    this.style.left = `${zone.offsetLeft}px`;
     drag.style.transform = `rotate(0deg)`;
   }
 }
