@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }`;
   });
   up.addEventListener("click", (e) => {
+    e.preventDefault();
+
     // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${gold.offsetTop}px`;
@@ -35,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
       drag.addEventListener("touchmove", dragMove);
       drag.addEventListener("touchend", dragDrop);
       drag.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+
         x =
           e.targetTouches[0].pageX -
           e.target.offsetLeft -
@@ -51,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   });
   left.addEventListener("click", (e) => {
+    e.preventDefault();
+
     // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${none.offsetTop}px`;
@@ -65,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
       drag.addEventListener("touchmove", dragMove);
       drag.addEventListener("touchend", dragDrop);
       drag.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+
         x =
           e.targetTouches[0].pageX -
           e.target.offsetLeft -
@@ -81,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   });
   right.addEventListener("click", (e) => {
+    e.preventDefault();
+
     // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${like.offsetTop}px`;
@@ -95,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
       drag.addEventListener("touchmove", dragMove);
       drag.addEventListener("touchend", dragDrop);
       drag.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+
         x =
           e.targetTouches[0].pageX -
           e.target.offsetLeft -
@@ -142,13 +154,13 @@ document.addEventListener("DOMContentLoaded", function () {
     //   console.log(x, y);
   });
   [...card].forEach((el) => {});
-  drag.addEventListener("click", function (e) {
-    console.log(e);
-    console.log(e.offsetX);
-    console.log(e.offsetY);
-    //   x = e.offsetX;
-    //   y = e.offsetY;
-  });
+//   drag.addEventListener("click", function (e) {
+//     console.log(e);
+//     console.log(e.offsetX);
+//     console.log(e.offsetY);
+//     //   x = e.offsetX;
+//     //   y = e.offsetY;
+//   });
 
   function dragMove(e) {
     drag.style.transitionProperty = "none";
@@ -213,6 +225,8 @@ document.addEventListener("DOMContentLoaded", function () {
         drag.addEventListener("touchmove", dragMove);
         drag.addEventListener("touchend", dragDrop);
         drag.addEventListener("touchstart", function (e) {
+            e.preventDefault();
+
           x =
             e.targetTouches[0].pageX -
             e.target.offsetLeft -
