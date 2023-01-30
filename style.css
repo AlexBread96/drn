@@ -81,9 +81,9 @@ footer {
 }
 
 .btns {
-    position: absolute;
-    z-index: 6;
-    bottom: 30px;
+    position: fixed;
+    z-index: 16;
+    bottom: 130px;
     right: 0;
     left: 0;
     display: flex;
