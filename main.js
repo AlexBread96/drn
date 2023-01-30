@@ -15,7 +15,7 @@ drag.addEventListener("touchmove", dragMove);
 drag.addEventListener("touchend", dragDrop);
 drag.addEventListener("touchstart", function (e) {
   //   console.log(e);
-  console.log(e.targetTouches[0]);
+  //   console.log(e.targetTouches[0]);
   //   console.log(drag.getBoundingClientRect());
   //   console.log(
   //     e.targetTouches[0].pageX -
@@ -37,18 +37,17 @@ drag.addEventListener("touchstart", function (e) {
   y =
     e.targetTouches[0].pageY -
     e.target.offsetTop -
-    (drag.getBoundingClientRect().top -
-      e.targetTouches[0].target.offsetTop);
-  console.log(x, y);
+    (drag.getBoundingClientRect().top - e.targetTouches[0].target.offsetTop);
+  //   console.log(x, y);
 });
-[...card].forEach((el) => {});
-drag.addEventListener("click", function (e) {
-  console.log(e);
-  console.log(e.offsetX);
-  console.log(e.offsetY);
-  //   x = e.offsetX;
-  //   y = e.offsetY;
-});
+// [...card].forEach((el) => {});
+// drag.addEventListener("click", function (e) {
+//   console.log(e);
+//   console.log(e.offsetX);
+//   console.log(e.offsetY);
+//   //   x = e.offsetX;
+//   //   y = e.offsetY;
+// });
 
 function dragMove(e) {
   drag.style.transition = "";
@@ -93,30 +92,33 @@ function dragDrop(e) {
     lastItem.classList.contains("like") ||
     lastItem.classList.contains("none")
   ) {
-    lastItem.append(this);
-    this.style.top = `${lastItem.offsetTop}px`;
+    this.style.transition = "all .2s ease";
+    // this.style.top = `${lastItem.offsetTop}px`;
     this.style.left = `${lastItem.offsetLeft}px`;
     drag.style.transform = `rotate(0deg)`;
-    this.remove();
-    zone.firstElementChild.setAttribute("id", "drag");
-    drag = document.getElementById("drag");
-    lastItem = zone;
-    drag.addEventListener("touchmove", dragMove);
-    drag.addEventListener("touchend", dragDrop);
-    drag.addEventListener("touchstart", function (e) {
-      x =
-        e.targetTouches[0].pageX -
-        e.target.offsetLeft -
-        (drag.getBoundingClientRect().left -
-          e.targetTouches[0].target.offsetLeft);
-      y =
-        e.targetTouches[0].pageY -
-        e.target.offsetTop -
-        (drag.getBoundingClientRect().top -
-          e.targetTouches[0].target.offsetTop );
-      console.log(x, y);
-      console.log(drag.getBoundingClientRect());
-    });
+    setTimeout(() => {
+      lastItem.append(this);
+      this.remove();
+      zone.firstElementChild.setAttribute("id", "drag");
+      drag = document.getElementById("drag");
+      lastItem = zone;
+      drag.addEventListener("touchmove", dragMove);
+      drag.addEventListener("touchend", dragDrop);
+      drag.addEventListener("touchstart", function (e) {
+        x =
+          e.targetTouches[0].pageX -
+          e.target.offsetLeft -
+          (drag.getBoundingClientRect().left -
+            e.targetTouches[0].target.offsetLeft);
+        y =
+          e.targetTouches[0].pageY -
+          e.target.offsetTop -
+          (drag.getBoundingClientRect().top -
+            e.targetTouches[0].target.offsetTop);
+        //   console.log(x, y);
+        //   console.log(drag.getBoundingClientRect());
+      });
+    }, 300);
   } else {
     this.style.transition = "all .2s ease";
     this.style.top = `${lastItem.offsetTop}px`;

@@ -15,9 +15,7 @@ html {
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
-    width: 100vw;
-    padding: calc(25px + constant(safe-area-inset-bottom)) 0;
-    padding: calc(25px + env(safe-area-inset-bottom)) 0;
+    width: 100vw; 
 }
 
 
@@ -41,7 +39,7 @@ footer {
     width: 100vw;
     height: calc(100% - 100px);
     max-width: 420px;
-    min-height: 560px;
+    min-height: 460px;
     display: flex;
     flex-wrap: nowrap;
 }
