@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       gold.append(drag);
       drag.remove();
-      zone.firstElementChild.setAttribute("id", "drag");
+      zone.lastElementChild.setAttribute("id", "drag");
       drag = document.getElementById("drag");
       lastItem = zone;
       drag.addEventListener("touchmove", dragMove);
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       none.append(drag);
       drag.remove();
-      zone.firstElementChild.setAttribute("id", "drag");
+      zone.lastElementChild.setAttribute("id", "drag");
       drag = document.getElementById("drag");
       lastItem = zone;
       drag.addEventListener("touchmove", dragMove);
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       like.append(drag);
       drag.remove();
-      zone.firstElementChild.setAttribute("id", "drag");
+      zone.lastElementChild.setAttribute("id", "drag");
       drag = document.getElementById("drag");
       lastItem = zone;
       drag.addEventListener("touchmove", dragMove);
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         lastItem.append(this);
         this.remove();
-        zone.firstElementChild.setAttribute("id", "drag");
+        zone.lastElementChild.setAttribute("id", "drag");
         drag = document.getElementById("drag");
         lastItem = zone;
         drag.addEventListener("touchmove", dragMove);
