@@ -159,14 +159,14 @@ document.addEventListener("DOMContentLoaded", function () {
       touch.target.offsetLeft - touch.target.parentElement.offsetLeft;
     if (drag.getBoundingClientRect().height / 2 < y) {
       drag.style.transformOrigin = "bottom";
-      drag.style.transform = `rotate(${-rotate / 64}deg)`;
+      drag.style.transform = `rotate(${-rotate / 16}deg)`;
     } else {
       drag.style.transformOrigin = "top";
-      drag.style.transform = `rotate(${rotate / 64}deg)`;
+      drag.style.transform = `rotate(${rotate / 16}deg)`;
     }
     // тиндер эмитация
     [...empty].forEach((el) => {
-      // el.addEventListener('')
+      // el.addEventListener('') 
       if (
         drag.getBoundingClientRect().top + drag.offsetHeight / 2 <
           el.getBoundingClientRect().bottom &&
@@ -178,9 +178,9 @@ document.addEventListener("DOMContentLoaded", function () {
           el.getBoundingClientRect().right
       ) {
         //   el.classList.add("active");
-
+        console.log(el);
         lastItem = el;
-      } else { 
+      } else {
         //   el.classList.remove("active");
       }
     });
