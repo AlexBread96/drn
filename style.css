@@ -108,7 +108,7 @@ footer {
 
 .btns {
     position: fixed;
-    z-index: 16;
+    z-index: 1600;
     bottom: 130px;
     right: 0;
     left: 0;
@@ -159,14 +159,14 @@ footer {
 
 .card:first-child {
 
-    z-index: 4;
+    z-index: 410;
 
 }
 
 
 .card:nth-child(2) {
 
-    z-index: 3;
+    z-index: 403;
 
 }
 
