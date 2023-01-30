@@ -140,16 +140,16 @@ drag.addEventListener("touchstart", function (e) {
     e.targetTouches[0].pageY -
     e.target.offsetTop -
     (drag.getBoundingClientRect().top - e.targetTouches[0].target.offsetTop);
-  //   console.log(x, y);
+    console.log(x, y);
 });
-// [...card].forEach((el) => {});
-// drag.addEventListener("click", function (e) {
-//   console.log(e);
-//   console.log(e.offsetX);
-//   console.log(e.offsetY);
-//   //   x = e.offsetX;
-//   //   y = e.offsetY;
-// });
+[...card].forEach((el) => {});
+drag.addEventListener("click", function (e) {
+  console.log(e);
+  console.log(e.offsetX);
+  console.log(e.offsetY);
+  //   x = e.offsetX;
+  //   y = e.offsetY;
+});
 
 function dragMove(e) {
   drag.style.transition = "";
@@ -220,7 +220,7 @@ function dragDrop(e) {
           e.target.offsetTop -
           (drag.getBoundingClientRect().top -
             e.targetTouches[0].target.offsetTop);
-        //   console.log(x, y);
+          console.log(x, y);
         //   console.log(drag.getBoundingClientRect());
       });
     }, 220);
