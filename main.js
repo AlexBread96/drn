@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
   drag.addEventListener("touchmove", dragMove);
   drag.addEventListener("touchend", dragDrop);
   drag.addEventListener("touchstart", function (e) {
+    e.preventDefault();
     //   console.log(e);
     //   console.log(e.targetTouches[0]);
     //   console.log(drag.getBoundingClientRect());
@@ -159,10 +160,10 @@ document.addEventListener("DOMContentLoaded", function () {
       touch.target.offsetLeft - touch.target.parentElement.offsetLeft;
     if (drag.getBoundingClientRect().height / 2 < y) {
       drag.style.transformOrigin = "top";
-      drag.style.transform = `rotate(${-rotate / 32}deg)`;
+      drag.style.transform = `rotate(${-rotate / 80}deg)`;
     } else {
-      drag.style.transformOrigin = "top";
-      drag.style.transform = `rotate(${rotate / 16}deg)`;
+      drag.style.transformOrigin = "bottom";
+      drag.style.transform = `rotate(${rotate / 80}deg)`;
     }
     // тиндер эмитация
     [...empty].forEach((el) => {
@@ -189,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function dragDrop(e) {
+    e.preventDefault();
     if (
       lastItem.classList.contains("like") ||
       lastItem.classList.contains("none") ||
