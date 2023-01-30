@@ -48,7 +48,7 @@ up.addEventListener("click", (e) => {
       //   console.log(x, y);
       //   console.log(drag.getBoundingClientRect());
     });
-  }, 220);
+  }, 300);
 });
 
 left.addEventListener("click", (e) => {
@@ -79,7 +79,7 @@ left.addEventListener("click", (e) => {
       //   console.log(x, y);
       //   console.log(drag.getBoundingClientRect());
     });
-  }, 220);
+  }, 300);
 });
 
 right.addEventListener("click", (e) => {
@@ -110,7 +110,7 @@ right.addEventListener("click", (e) => {
       //   console.log(x, y);
       //   console.log(drag.getBoundingClientRect());
     });
-  }, 220);
+  }, 300);
 });
 
 drag.addEventListener("touchmove", dragMove);

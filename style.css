@@ -1,6 +1,14 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 *,
 ::before,
 ::adter {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,9 +18,18 @@ body,
 html {
     background-color: #333;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     overflow-x: hidden;
     width: 100vw;
@@ -26,8 +43,14 @@ footer {
     color: #fff;
     width: 100vw;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 1rem;
 }
@@ -40,8 +63,11 @@ footer {
     height: calc(80%);
     max-width: 420px;
     min-height: 460px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: nowrap; 
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 @media (min-width: 420px) {
@@ -86,8 +112,11 @@ footer {
     bottom: 130px;
     right: 0;
     left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around; 
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
 }
 
 /* .empty:nth-child(2) {
@@ -99,20 +128,32 @@ footer {
 
 .card {
     /* transform-origin: top; */
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
     transition-timing-function: linear;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     position: absolute;
     font-size: 5rem;
     width: inherit;
     height: inherit;
     color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     z-index: 2;
     background-color: #111;
     top: 0;
     left: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
