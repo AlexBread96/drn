@@ -153,7 +153,7 @@ footer {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    z-index: -1;
+    /* z-index: -1; */
     background-color: #111;
     top: 0;
     left: 0;
@@ -163,7 +163,7 @@ footer {
     user-select: none;
 }
 
-.card:first-child {
+/* .card:first-child {
 
     z-index: 410;
 
@@ -174,7 +174,7 @@ footer {
 
     z-index: 403;
 
-}
+} */
 
 
 /* 
