@@ -158,8 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let rotate =
       touch.target.offsetLeft - touch.target.parentElement.offsetLeft;
     if (drag.getBoundingClientRect().height / 2 < y) {
-      drag.style.transformOrigin = "bottom";
-      drag.style.transform = `rotate(${-rotate / 16}deg)`;
+      drag.style.transformOrigin = "top";
+      drag.style.transform = `rotate(${-rotate / 32}deg)`;
     } else {
       drag.style.transformOrigin = "top";
       drag.style.transform = `rotate(${rotate / 16}deg)`;
