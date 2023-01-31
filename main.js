@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const none = document.querySelector(".none");
   const like = document.querySelector(".like");
   const empty = document.querySelectorAll(".empty");
-  const card = document.querySelectorAll(".card");
+  let card = document.querySelectorAll(".card");
   let drag = document.getElementById("drag");
   const left = document.querySelector(".left");
   const up = document.querySelector(".up");
@@ -15,12 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
   let x;
   let y;
   let lastItem = zone;
-  [...card].forEach((el) => {
+  card = [...card].reverse();
+  card.forEach((el, i) => {
     el.style.backgroundColor = `${
       "#" +
       (Math.random().toString(16) + "000000").substring(2, 8).toUpperCase()
     }`;
+    el.textContent = `${i + 1}`;
   });
+
   up.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -154,13 +157,13 @@ document.addEventListener("DOMContentLoaded", function () {
     //   console.log(x, y);
   });
   [...card].forEach((el) => {});
-//   drag.addEventListener("click", function (e) {
-//     console.log(e);
-//     console.log(e.offsetX);
-//     console.log(e.offsetY);
-//     //   x = e.offsetX;
-//     //   y = e.offsetY;
-//   });
+  //   drag.addEventListener("click", function (e) {
+  //     console.log(e);
+  //     console.log(e.offsetX);
+  //     console.log(e.offsetY);
+  //     //   x = e.offsetX;
+  //     //   y = e.offsetY;
+  //   });
 
   function dragMove(e) {
     drag.style.transitionProperty = "none";
@@ -180,8 +183,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // тиндер эмитация
     [...empty].forEach((el) => {
       // el.addEventListener('')
-    // console.log(none.getBoundingClientRect());
-    // console.log(drag.getBoundingClientRect());
+      // console.log(none.getBoundingClientRect());
+      // console.log(drag.getBoundingClientRect());
       if (
         drag.getBoundingClientRect().top + drag.offsetHeight / 2 <
           el.getBoundingClientRect().bottom &&
@@ -225,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         drag.addEventListener("touchmove", dragMove);
         drag.addEventListener("touchend", dragDrop);
         drag.addEventListener("touchstart", function (e) {
-            e.preventDefault();
+          e.preventDefault();
 
           x =
             e.targetTouches[0].pageX -
