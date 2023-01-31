@@ -154,7 +154,8 @@ footer {
     -ms-flex-pack: center;
     justify-content: center;
     /* z-index: -1; */
-    background-color: #111;
+    /* background-color: #111; */
+    display: none;
     top: 0;
     left: 0;
     bottom: 0;
@@ -165,18 +166,18 @@ footer {
     user-select: none;
 }
 
-/* .card:first-child {
-
-    z-index: 410;
+.card:last-child {
+    display: flex;
+    /* z-index: 410; */
 
 }
 
 
-.card:nth-child(2) {
+.card:nth-last-child(-n+2) {
+    display: flex;
+    /* z-index: 403; */
 
-    z-index: 403;
-
-} */
+}
 
 
 /* 
