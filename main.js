@@ -215,10 +215,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lastItem.classList.contains("gold")
     ) {
       this.style.transitionProperty = "all";
-      lastItem.classList.contains("gold")
-        ? (this.style.top = `${lastItem.offsetTop - 100}px`)
-        : null;
+ 
       lastItem.classList.contains("like") ? this.style.left = `${like.offsetLeft + 100}px` : this.style.left = `${none.offsetLeft - 100}px`;
+
+      lastItem.classList.contains("gold")
+      ? (this.style.top = `${gold.offsetTop - 100}px`, this.style.left = `${lastItem.offsetLeft}px`)
+      : null;
       // this.style.left = `${lastItem.offsetLeft + 100}px`;
       //   drag.firstChild.style.transform = `rotate(0deg)`;
       setTimeout(() => {
