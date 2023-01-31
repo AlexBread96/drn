@@ -17,11 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let lastItem = zone;
   card = [...card].reverse();
   card.forEach((el, i) => {
-    el.style.backgroundColor = `${
+    el.innerHTML = "<div></div>";
+    el.firstChild.style.backgroundColor = `${
       "#" +
       (Math.random().toString(16) + "000000").substring(2, 8).toUpperCase()
     }`;
-    el.textContent = `${i + 1}`;
+    el.firstChild.textContent = `${i + 1}`;
   });
 
   up.addEventListener("click", (e) => {
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // console.log(e);
     drag.style.transitionProperty = "all";
-    drag.style.top = `${gold.offsetTop}px`;
+    drag.style.top = `${gold.offsetTop - 100}px`;
     drag.style.left = `${gold.offsetLeft}px`;
     setTimeout(() => {
       gold.append(drag);
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${none.offsetTop}px`;
-    drag.style.left = `${none.offsetLeft}px`;
+    drag.style.left = `${none.offsetLeft - 100}px`;
     drag.style.transform = `rotate(${10}deg)`;
     setTimeout(() => {
       none.append(drag);
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log(e);
     drag.style.transitionProperty = "all";
     drag.style.top = `${like.offsetTop}px`;
-    drag.style.left = `${like.offsetLeft}px`;
+    drag.style.left = `${like.offsetLeft + 100}px`;
     drag.style.transform = `rotate(${-10}deg)`;
     setTimeout(() => {
       like.append(drag);
@@ -174,11 +175,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let rotate =
       touch.target.offsetLeft - touch.target.parentElement.offsetLeft;
     if (drag.getBoundingClientRect().height / 2 < y) {
-      drag.style.transformOrigin = "top";
-      drag.style.transform = `rotate(${-rotate / 16}deg)`;
+      drag.firstChild.style.transformOrigin = "bottom";
+      drag.firstChild.style.transform = `rotate(${rotate / 32}deg)`;
     } else {
-      drag.style.transformOrigin = "bottom";
-      drag.style.transform = `rotate(${rotate / 16}deg)`;
+      drag.firstChild.style.transformOrigin = "top";
+      drag.firstChild.style.transform = `rotate(${-rotate / 32}deg)`;
     }
     // тиндер эмитация
     [...empty].forEach((el) => {
@@ -215,10 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       this.style.transitionProperty = "all";
       lastItem.classList.contains("gold")
-        ? (this.style.top = `${lastItem.offsetTop}px`)
+        ? (this.style.top = `${lastItem.offsetTop - 100}px`)
         : null;
-      this.style.left = `${lastItem.offsetLeft}px`;
-      drag.style.transform = `rotate(0deg)`;
+      lastItem.classList.contains("like") ? this.style.left = `${like.offsetLeft + 100}px` : this.style.left = `${none.offsetLeft - 100}px`;
+      // this.style.left = `${lastItem.offsetLeft + 100}px`;
+      //   drag.firstChild.style.transform = `rotate(0deg)`;
       setTimeout(() => {
         lastItem.append(this);
         this.remove();
@@ -243,12 +245,12 @@ document.addEventListener("DOMContentLoaded", function () {
           //   console.log(x, y);
           //   console.log(drag.getBoundingClientRect());
         });
-      }, 300);
+      }, 100);
     } else {
       this.style.transitionProperty = "all";
       this.style.top = `${zone.offsetTop}px`;
       this.style.left = `${zone.offsetLeft}px`;
-      drag.style.transform = `rotate(0deg)`;
+      drag.firstChild.style.transform = `rotate(0deg)`;
     }
   }
 });

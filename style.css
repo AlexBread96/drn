@@ -131,9 +131,9 @@ footer {
     -webkit-transition-timing-function: linear;
     -o-transition-timing-function: linear;
     transition-timing-function: linear;
-    -webkit-transition-duration: .2s;
-    -o-transition-duration: .2s;
-    transition-duration: .2s;
+    -webkit-transition-duration: .1s;
+    -o-transition-duration: .1s;
+    transition-duration: .1s;
     -webkit-transition-property: none;
     -o-transition-property: none;
     transition-property: none;
@@ -143,16 +143,7 @@ footer {
     font-size: 5rem;
     width: inherit;
     height: inherit;
-    color: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+
     /* z-index: -1; */
     /* background-color: #111; */
     display: none;
@@ -160,10 +151,37 @@ footer {
     left: 0;
     bottom: 0;
     right: 0;
+  
+}
+
+.card > div {
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: none;
+    -o-transition-property: none;
+    transition-property: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: inherit;
+    height: inherit;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .card:last-child {
